@@ -82,8 +82,8 @@
     contentHeight += self.ignoredScrollViewContentInsetBottom;
     // 表格的高度
     CGFloat scrollHeight = self.scrollView.mj_h - self.scrollViewOriginalInset.top - self.scrollViewOriginalInset.bottom + self.ignoredScrollViewContentInsetBottom;
-    // 设置位置
-    CGFloat y = MAX(contentHeight, scrollHeight);
+    // 使上拉加载视图位置在屏幕外--Johnson
+    CGFloat y = MAX(contentHeight, scrollHeight)+[[UIApplication sharedApplication] keyWindow].safeAreaInsets.bottom;
     if (self.mj_y != y) {
         self.mj_y = y;
     }
